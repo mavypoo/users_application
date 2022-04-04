@@ -26,18 +26,20 @@
                     <th>Email:</th>
                     <th>Created at:</th>
                     <th>Updated at: </th>
+                    <th>Action:</th>
                 </tr>
             </thead>
             <tbody>
                 <!---Add data here from the database-->
-                {% for one_user in all_users %}
+                {% for user in users %}
                 <tr>
-                    <td>{{ one_user.id }}</td> 
-                    <td>{{ one_user.first_name }}</td> 
-                    <td>{{ one_user.last_name }}</td> 
-                    <td>{{ one_user.email }}</td> 
-                    <td>{{ one_user.created_at }}</td> 
-                    <td>{{ one_user.updated_at }}</td> 
+                    <td>{{ user.id }}</td> 
+                    <td>{{ user.first_name }}</td> 
+                    <td>{{ user.last_name }}</td> 
+                    <td>{{ user.email }}</td> 
+                    <td>{{ user.created_at }}</td> 
+                    <td>{{ user.updated_at }}</td> 
+                    <td><a href="/users/show/{{ user.id }}">Show</a>|<a href="/users/edit/{{ user.id }}">Edit</a>|<a href="/users/delete/{{ user.id }}">Delete</a></td> 
                 </tr>
                 {% endfor %}
             </tbody>

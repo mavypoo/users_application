@@ -11,33 +11,36 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-9">
-                <h1>Add a New User</h1>
+                <h1>Edit {{user.first_name}} </h1>
             <div class="col text-end fs-3">
                 <a href="/users">Home</a>   <!---add link to all users (/users) it has to be the route name-->
             </div>
         </div>
-        <form action="/users/add" method="POST"> <!-- Route to send the data to database (located in the controllers @app.route("/carriers/add"); dont forget method="POST"-->
+        <form action="/users/update" method="POST"> <!-- Route to send the data to database (located in the controllers @app.route("/carriers/add"); dont forget method="POST"-->
+            <div class="form-group row">
+                <input type="hidden" name="id" value={{user.id}}>
+            </div>
             <div class="form-group row">
                 <label class="col-sm-2 col -form-label lg pt-2.5">First name:</label>
                 <div  class="col-sm-4 p-2">
-                    <input type="text"  class="form-control" name="first_name">
+                    <input type="text"  class="form-control" name="first_name" value="{{user.first_name}}">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col -form-label lg pt-2.5">Last name:</label>
                 <div  class="col-sm-4 p-2">
-                    <input type="text"  class="form-control" name="last_name">
+                    <input type="text"  class="form-control" name="last_name" value="{{user.last_name}}">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col -form-label lg pt-2.5">Email:</label>
                 <div  class="col-sm-4 p-2">
-                    <input type="text" class="form-control" name="email">
+                    <input type="text" class="form-control" name="email" value="{{user.email}}">
                 </div>
             </div>
             <div class="form-group row">
                 <div  class="col-sm-4 p-2">
-                    <button type="submit" class="btn btn-primary">Create user</button>
+                    <button type="submit" value="Update User" class="btn btn-primary">Update user</button>
                 </div>
             </div>
     </form>
